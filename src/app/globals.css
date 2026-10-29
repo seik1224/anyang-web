@@ -1,26 +1,117 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Anyang Eye Clinic — Design System
+ * Based on Dembrandt extraction of belgradearbor.rs
+ * Primary color translated from pine-green #2E3A26 → slate-navy #2F4259
+ */
+
+@theme {
+  /* ─── Colors (Primitives) ─── */
+  --color-navy: #2F4259;          /* Primary foreground / dark surface */
+  --color-navy-mid: #5C7187;      /* Secondary slate blue */
+  --color-navy-hover: #6E8599;    /* Hover slate blue */
+  --color-lime: #E7FD55;          /* Neon lime accent */
+  --color-lime-hover: #C4D748;
+  --color-taupe: #CCBF99;         /* Beige accent (buttons) */
+  --color-vanilla: #FFF4D6;       /* Surface */
+  --color-cream: #F4F0DB;         /* Surface alt */
+  --color-ivory: #FDFBEF;         /* Background */
+  --color-near-black: #101010;
+  --color-mid-dark: #4B5048;
+
+  /* ─── Semantic ─── */
+  --color-background: var(--color-ivory);
+  --color-foreground: var(--color-navy);
+  --color-surface: var(--color-vanilla);
+  --color-surface-alt: var(--color-cream);
+  --color-surface-dark: var(--color-navy);
+  --color-on-dark: var(--color-ivory);
+  --color-accent: var(--color-taupe);
+  --color-accent-sub: var(--color-navy-mid);
+  --color-highlight: var(--color-lime);
+  --color-text-muted: var(--color-mid-dark);
+  --color-text-strong: var(--color-near-black);
+  --color-border: var(--color-taupe);
+  --color-border-strong: var(--color-navy-mid);
+
+  /* ─── Fonts ─── */
+  --font-serif: var(--font-fraunces), "PP Editorial Old", Georgia, serif;
+  --font-serif-kr: var(--font-noto-serif-kr), var(--font-fraunces), serif;
+  --font-sans: var(--font-work-sans), var(--font-pretendard), "Inter", sans-serif;
+  --font-sans-kr: var(--font-pretendard), var(--font-work-sans), sans-serif;
+
+  /* ─── Spacing (Belgrade scale) ─── */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 0.75rem;    /* 12px */
+  --spacing-base: 1rem;     /* 16px */
+  --spacing-lg: 1.25rem;    /* 20px */
+  --spacing-xl: 1.5rem;     /* 24px */
+  --spacing-2xl: 2rem;      /* 32px */
+  --spacing-3xl: 2.5rem;    /* 40px */
+  --spacing-4xl: 3rem;      /* 48px */
+  --spacing-5xl: 3.75rem;   /* 60px */
+  --spacing-6xl: 5rem;      /* 80px */
+  --spacing-7xl: 6.25rem;   /* 100px */
+  --spacing-8xl: 7.5rem;    /* 120px */
+  --spacing-9xl: 10rem;     /* 160px */
+
+  /* ─── Radius ─── */
+  --radius-sm: 1.125rem;    /* 18px */
+  --radius-md: 1.25rem;     /* 20px */
+  --radius-lg: 1.75rem;     /* 28px */
+  --radius-full: 9999px;
+
+  /* ─── Typography ─── */
+  --text-display-xl: 12.5rem;   /* 200px */
+  --text-display-l: 10rem;      /* 160px */
+  --text-display-m: 6.25rem;    /* 100px */
+  --text-display-s: 6rem;       /* 96px */
+  --text-headline-xl: 3.5rem;   /* 56px */
+  --text-headline-l: 3rem;      /* 48px */
+  --text-headline-m: 2.5rem;    /* 40px */
+  --text-headline-s: 2.25rem;   /* 36px */
+  --text-label-serif: 2rem;     /* 32px */
+  --text-body-l: 1.25rem;       /* 20px */
+  --text-body-m: 1.125rem;      /* 18px */
+  --text-body-s: 1rem;          /* 16px */
+  --text-body-xs: 0.875rem;     /* 14px */
+  --text-ui-s: 0.75rem;         /* 12px */
+
+  /* ─── Motion (Belgrade timings) ─── */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --duration-fast: 220ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 650ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Hide scrollbar for cleaner look (optional) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy-mid);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-navy);
 }
